@@ -5,7 +5,7 @@
 
 .calc-grid(@index, @class, @type) when (@type = width) and (@index > 0) {
   .col-@{class}-@{index} {
-    width: percentage((@index / @grid-columns));
+    flex-basis: percentage((@index / @grid-columns));
   }
 }
 
@@ -33,60 +33,61 @@
   }
   .col(@index, @list) when (@index > @grid-columns) { // terminal
     @{list} {
-		box-sizing: border-box;
-		display: -webkit-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
-		// Inner gutter via padding
-		padding-left:  (@grid-gutter-width / 2);
-		padding-right: (@grid-gutter-width / 2);
+        box-sizing: border-box;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex: 0 1 auto;
+        flex-direction: column;
+        padding-left:  (@grid-gutter-width / 2);
+        padding-right: (@grid-gutter-width / 2);
     }
   }
   .col(1); // kickstart it
 }
 
 .make-help-class(@class) {
-	.start-@{class} {
-	  justify-content: flex-start;
-	  text-align: start;
-	}
+    .start-@{class} {
+      justify-content: flex-start;
+      text-align: start;
+    }
 
-	.center-@{class} {
-	  justify-content: center;
-	  text-align: center;
-	}
+    .center-@{class} {
+      justify-content: center;
+      text-align: center;
+    }
 
-	.end-@{class} {
-	  justify-content: flex-end;
-	  text-align: end;
-	}
+    .end-@{class} {
+      justify-content: flex-end;
+      text-align: end;
+    }
 
-	.top-@{class} {
-	  align-items: flex-start;
-	}
+    .top-@{class} {
+      align-items: flex-start;
+    }
 
-	.middle-@{class} {
-	  align-items: center;
-	}
+    .middle-@{class} {
+      align-items: center;
+    }
 
-	.bottom-@{class} {
-	  align-items: flex-end;
-	}
+    .bottom-@{class} {
+      align-items: flex-end;
+    }
 
-	.around-@{class} {
-	  justify-content: space-around;
-	}
+    .around-@{class} {
+      justify-content: space-around;
+    }
 
-	.between-@{class} {
-	  justify-content: space-between;
-	}
+    .between-@{class} {
+      justify-content: space-between;
+    }
 
-	.first-@{class} {
-	  order: -1;
-	}
+    .first-@{class} {
+      order: -1;
+    }
 
-	.last-@{class} {
-	  order: 1;
-	}
+    .last-@{class} {
+      order: 1;
+    }
 }
