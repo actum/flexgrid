@@ -1,11 +1,7 @@
-.make-row(@gutter: @grid-gutter-width) {
-  margin-left:  (@gutter / -2);
-  margin-right: (@gutter / -2);
-}
-
 .calc-grid(@index, @class, @type) when (@type = width) and (@index > 0) {
   .col-@{class}-@{index} {
-    flex-basis: percentage((@index / @grid-columns));
+    @width: percentage((@index / @grid-columns));
+    flex-basis: ~"calc(@{width} - @{grid-gutter-width})";
   }
 }
 
@@ -40,8 +36,10 @@
         display: flex;
         flex: 0 1 auto;
         flex-direction: column;
-        padding-left:  (@grid-gutter-width / 2);
-        padding-right: (@grid-gutter-width / 2);
+        // padding-left:  (@grid-gutter-width / 2);
+        // padding-right: (@grid-gutter-width / 2);
+        margin-left:  (@grid-gutter-width / 2);
+        margin-right: (@grid-gutter-width / 2);
     }
   }
   .col(1); // kickstart it
