@@ -6,10 +6,11 @@
   flex-wrap: wrap;
   margin-right: (-@grid-gutter-width / 2);
   margin-left: (-@grid-gutter-width / 2);
-}
+  align-content: center;
 
-.row.reverse {
-  flex-direction: row-reverse;
+  &.reverse {
+    flex-direction: row-reverse;
+  }
 }
 
 .make-grid-columns();
