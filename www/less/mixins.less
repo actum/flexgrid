@@ -7,7 +7,8 @@
 
 .calc-grid(@index, @class, @type) when (@type = offset) {
   .col-@{class}-offset-@{index} {
-    margin-left: percentage((@index / @grid-columns));
+    @offset: percentage((@index / @grid-columns));
+    margin-left: ~"calc(@{offset} + 15px)";
   }
 }
 
